@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&subset=latin-ext');
+
+@import "node_modules/bourbon-neat/app/assets/stylesheets/neat-helpers";
+
+$column: 71px;
+$gutter: 24px;
+$grid-columns: 8;
+$max-width: 736px;
+
+$mobile: new-breakpoint(max-width 640px 4);
+
+$panel-background: #FFFFFF;
+$body-background:#f8fcff;
+$navy-blue: #172751;
+$dark-white: #1C1F2A;
+
+body{
+    background-color: $body-background;
+    overflow-y: scroll;
+    .shares-container{
+        @include outer-container();
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: normal;
+        .shares-content{
+            @include span-columns(8);
+            .meal-image{
+                width: 100%;
+                height: auto;
+                box-shadow: 0 2px 12px 0 rgba(60,92,170,0.2);
+            }
+            .shares-panel{
+                background-color: $panel-background;	
+                box-shadow: 0 0 2px 0 rgba(60,92,170,0.12), 0 2px 2px 0 rgba(60,92,170,0.12);
+                margin-bottom: 16px;
+                padding: 16px;
+                .cook-time{
+                    font-size: 16px;
+                    line-height: 20px;
+                    opacity: 0.54;
+                    color: $dark-white;
+                    margin-top: 17px;
+                    margin-bottom: 8px;
+                    margin-left: 2px;
+                    i{
+                        position: relative;
+                        top: 3px;
+                        margin-right: 8px;
+                        font-size: 20px;
+                    }
+                }
+            }
+            .accordions-list{
+                list-style: none;
+                padding: 0;
+                margin-bottom: 16px;
+                .accordion-item{
+                    .accordion-link{
+                        padding: 16px 19px;
+                        background-color: $panel-background;
+                        cursor: pointer;
+                        .accordion-item-title{
+                            font-size: 14px;
+                            line-height: 18px;
+                            color: $navy-blue;
+                        }
+                        i{
+                            float: right;
+                            font-size: 10px;
+
+                            -webkit-transition: all 0.65s ease;
+                            -moz-transition: all 0.65s ease;
+                            -o-transition: all 0.65s ease;
+                            transition: all 0.65s ease;
+                        }
+                    }
+                    .sub{
+                        border-radius: 2px;
+                        background-color: $panel-background;
+                        box-shadow: 0 0 2px 0 rgba(60,92,170,0.12), 0 2px 2px 0 rgba(60,92,170,0.12);
+                        padding: 24px 16px;
+                        margin-bottom: 16px;
+                        display: none;
+                    }
+                }
+            }	
+        }
+    }
+}
+
+.accordion-item.open i.icon-chevron-down{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+// Fonts
+h3{
+    color: $navy-blue;
+    font-size: 24px;
+    line-height: 31px;
+    margin:0;
+    margin-bottom: 8px;
+}

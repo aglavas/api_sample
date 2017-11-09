@@ -1,0 +1,13 @@
+properties:
+  currentPage:
+    type: integer
+    format: int64
+  totalItems:
+    type: integer
+    format: int64
+  itemsPerPage:
+    type: integer
+    format: int64
+  totalPages:
+    type: integer
+    format: int64

@@ -1,0 +1,13 @@
+properties:
+  id:
+    type: integer
+  meal_id:
+    type: integer
+  name:
+    type: string
+  locale:
+    type: string
+  preparation:
+    type: string
+  description:
+    type: string

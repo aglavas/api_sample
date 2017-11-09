@@ -1,0 +1,13 @@
+properties:
+  prev:
+    type: string
+    default: "{URL}&page={pagenumber}"
+  next:
+    type: string
+    default: "{URL}&page={pagenumber}"
+  self:
+    type: string
+    default: "{URL}&page={pagenumber}"
+  template:
+    type: string
+    default: "{URL}&page={pagenumber}"

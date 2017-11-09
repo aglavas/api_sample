@@ -1,0 +1,52 @@
+
+#auth
+  /auth/login:
+    post:
+      $ref: './auth/login.yaml'
+  /auth/logout:
+    get:
+      $ref: './auth/logout.yaml'
+  /auth/token/refresh:
+    post:
+      $ref: './auth/tokenRefresh.yaml'
+  /auth/user:
+    post:
+      $ref: './auth/postUser.yaml'
+    get:
+      $ref: './auth/getUser.yaml'
+    patch:
+      $ref: './auth/patchUser.yaml'
+    delete:
+      $ref: './auth/deleteUser.yaml'
+  /auth/user/activate:
+    get:
+      $ref: './auth/userActivation.yaml'
+  /auth/user/image:
+    post:
+      $ref: './auth/postUserImage.yaml'
+    get:
+      $ref: './auth/getUserImage.yaml'
+#password
+  /password/reset:
+    post:
+      $ref: './password/reset.yaml'
+  /password/reset/{token}:
+    post:
+      $ref: './password/resetToken.yaml'
+  /auth/password:
+    patch:
+      $ref: './password/patchAuthPasswordUser.yaml'
+#meals
+  /meals:
+    post:
+      $ref: './meal/postMeals.yaml'
+  /meals/{id}:
+    get:
+      $ref: './meal/getMealsById.yaml'
+    delete:
+      $ref: './meal/deleteMealsById.yaml'
+    patch:
+      $ref: './meal/patchMealsById.yaml'
+  /meals/search:
+    get:
+      $ref: './meal/getMealsSearch.yaml'

@@ -1,0 +1,23 @@
+properties:
+  id:
+    type: integer
+  first_name:
+    type: string
+  last_name:
+    type: string
+  age:
+    type: integer
+  birth_date:
+    type: integer
+  sex:
+    type: string
+  email:
+    type: string
+  image_id:
+    type: integer
+  verified:
+    type: boolean
+  verification_token:
+    type: string
+  token:
+    type: string

@@ -1,0 +1,46 @@
+operationId: PostAuthLogin
+tags:
+  - Auth
+summary: User login
+description: User logs in using credentials and gets JWT token
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: email
+    in: formData
+    description: User email
+    required: true
+    type: string
+  - name: password
+    in: formData
+    description: User password
+    required: true
+    type: string
+responses:
+  '200':
+    description: User logged in
+    schema:
+      properties:
+        status_code:
+          type: integer
+        data:
+          $ref: '#/definitions/UserServiceRegisterDefinition'
+  '403':
+    description: Incorrect email/password combination.
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/GeneralError'
+
+  '422':
+    description: Validation error
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/ValidationError'

@@ -1,0 +1,71 @@
+operationId: getMealsSearch
+tags:
+  - Meal
+summary: Get meals by query
+description: Get meals by query
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: per_page
+    in: query
+    description: Per page pagination paramter. Default is 50.
+    required: false
+    type: integer
+  - name: meal_type
+    in: query
+    description: Meal types - Breakfast, Lunch, Dinner. Only single values
+    required: false
+    type: string
+  - name: diet_type
+    in: query
+    description: Diet types - Vegetarian, Vegan, Regular. Possible to send multiple types separated by comma.
+    required: false
+    type: string
+  - name: with
+    in: query
+    description: Adding relations to Meal entity. Allowed relations - diet_type, translations, meal_type, nutrition. Possible to send multiple types separated by comma. By default all relations are returned.
+    required: false
+    type: string
+responses:
+  '200':
+    description: Paginated meals with translations
+    schema:
+      properties:
+        meta:
+          type: array
+          items:
+            $ref: '#/definitions/PaginationMeta'
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/MealsCreationData'
+        links:
+          type: array
+          items:
+            $ref: '#/definitions/PaginationLinks'
+  '422':
+    description: Validation error
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/ValidationError'
+  '401':
+          description: Token not provided, authentication needed./Token has expired.
+          schema:
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: '#/definitions/GeneralError'
+  '403':
+    description: The token has been blacklisted./Could not decode token/A token is required
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/GeneralError'

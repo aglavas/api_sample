@@ -1,0 +1,52 @@
+operationId: postAuthUserImage
+tags:
+  - Auth
+summary: Upload user image
+description: Upload user image
+consumes:
+  - multipart/form-data
+produces:
+  - application/json
+parameters:
+  - name: image
+    in: formData
+    description: User image
+    required: true
+    type: file
+responses:
+  '200':
+    description: Image uploaded
+    schema:
+      properties:
+        status_code:
+          type: integer
+        data:
+          type: object
+          $ref: '#/definitions/UserDefinition'
+  '422':
+    description: Validation error
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/ValidationError'
+
+  '401':
+        description: Token not provided, authentication needed./Token has expired.
+        schema:
+          properties:
+            errors:
+              type: array
+              items:
+                $ref: '#/definitions/GeneralError'
+  '403':
+    description: The token has been blacklisted./Could not decode token/A token is required
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/GeneralError'
+
+

@@ -1,0 +1,73 @@
+operationId: PostAuthUser
+tags:
+  - Auth
+summary: Creates user
+description: Creates new user - registration
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: first_name
+    in: formData
+    description: User's name
+    required: true
+    type: string
+  - name: last_name
+    in: formData
+    description: User's lastname
+    required: true
+    type: string
+  - name: email
+    in: formData
+    description: User's email
+    required: true
+    type: string
+  - name: password
+    in: formData
+    description: User's password
+    required: true
+    type: string
+  - name: password_confirmation
+    in: formData
+    description: User's password confirmation
+    required: true
+    type: string
+  - name: sex
+    in: formData
+    description: User's gender
+    required: true
+    type: string
+    enum:
+      - male
+      - female
+  - name: birth_date
+    in: formData
+    description: |
+      User's date of birth (_Format: Y-m-d)
+    type: string
+    format: date
+    required: true
+  - name: locale
+    in: formData
+    description: User's localization. Example format en,de,fr...
+    type: string
+    required: true
+responses:
+  '201':
+    description: User created
+    schema:
+      properties:
+        status_code:
+          type: integer
+        data:
+          $ref: '#/definitions/UserServiceRegisterDefinition'
+
+  '422':
+    description: Validation error
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/ValidationError'

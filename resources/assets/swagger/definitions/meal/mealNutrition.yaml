@@ -1,0 +1,11 @@
+properties:
+  id:
+    type: integer
+  meal_id:
+    type: integer
+  fat_amount:
+    type: integer
+  protein_amount:
+    type: integer
+  sugar_amount:
+    type: integer

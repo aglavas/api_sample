@@ -1,0 +1,98 @@
+operationId: postMeals
+tags:
+  - Meal
+summary: Create new meal
+description: Create new meal
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: name
+    in: formData
+    description: Meal name
+    required: true
+    type: string
+  - name: preparation
+    in: formData
+    description: Meal preparation
+    required: true
+    type: string
+  - name: description
+    in: formData
+    description: Meal description
+    required: true
+    type: string
+  - name: meal_type_id
+    in: formData
+    description: Id of meal type
+    required: true
+    type: integer
+  - name: calories
+    in: formData
+    description: Number of calories
+    required: true
+    type: integer
+  - name: duration
+    in: formData
+    description: Duration of cooking.
+    required: true
+    type: integer
+  - name: diet_type_ids
+    in: formData
+    description: For which diet type is this meal compatibile
+    required: true
+    type: array
+    collectionFormat: multi
+    items:
+      type: integer
+  - name: fat_amount
+    in: formData
+    description: Fat amount in meal
+    required: true
+    type: integer
+  - name: protein_amount
+    in: formData
+    description: Protein amount in meal
+    required: true
+    type: integer
+  - name: sugar_amount
+    in: formData
+    description: Sugar amount in meal
+    required: true
+    type: integer
+responses:
+  '201':
+    description: Meal created
+    schema:
+      properties:
+        status_code:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/MealsCreationData'
+  '422':
+    description: Validation error
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/ValidationError'
+  '401':
+          description: Token not provided, authentication needed./Token has expired.
+          schema:
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: '#/definitions/GeneralError'
+  '403':
+    description: The token has been blacklisted./Could not decode token/A token is required
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/GeneralError'

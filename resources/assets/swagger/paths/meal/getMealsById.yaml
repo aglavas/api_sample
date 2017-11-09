@@ -1,0 +1,48 @@
+operationId: GetMealsById
+tags:
+  - Meal
+summary: Get meal by id
+description: Get meal by id
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: id
+    in: path
+    description: Meal id, must exists in table
+    required: true
+    type: integer
+responses:
+  '200':
+    description: Meal retreived
+    schema:
+      properties:
+        status_code:
+          type: integer
+        data:
+          $ref: '#/definitions/MealsCreationData'
+  '422':
+    description: Validation error
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/ValidationError'
+  '401':
+        description: Token not provided, authentication needed./Token has expired.
+        schema:
+          properties:
+            errors:
+              type: array
+              items:
+                $ref: '#/definitions/GeneralError'
+  '403':
+    description: The token has been blacklisted./Could not decode token/A token is required
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/GeneralError'

@@ -1,0 +1,29 @@
+operationId: postPasswordReset
+tags:
+  - Password
+summary: Requests password reset link
+description: Requests password reset link
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: email
+    in: formData
+    description: User email
+    required: true
+    type: string
+responses:
+  '200':
+    description: Password reset email sent.
+    schema:
+      $ref: '#/definitions/SuccessMessage'
+
+  '500':
+    description: Password reset email failed.
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/GeneralError'

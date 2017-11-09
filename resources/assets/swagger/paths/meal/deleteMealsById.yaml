@@ -1,0 +1,48 @@
+operationId: deleteMeals
+tags:
+  - Meal
+summary: Delete meal by id
+description: Delete meal by id
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: id
+    in: path
+    description: Meal id, must exists in table
+    required: true
+    type: integer
+responses:
+  '200':
+    description: Meal deleted
+    schema:
+      properties:
+        status_code:
+          type: integer
+        data:
+          type: string
+  '422':
+    description: Validation error
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/ValidationError'
+  '401':
+      description: Token not provided, authentication needed./Token has expired.
+      schema:
+        properties:
+          errors:
+            type: array
+            items:
+              $ref: '#/definitions/GeneralError'
+  '403':
+    description: The token has been blacklisted./Could not decode token/A token is required
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/GeneralError'

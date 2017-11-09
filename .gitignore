@@ -1,0 +1,11 @@
+/node_modules
+/public/storage
+/public/swagger.json
+/vendor
+/.idea
+/.vscode
+Homestead.json
+Homestead.yaml
+composer.lock
+.env
+composer.lock

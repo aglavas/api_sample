@@ -1,0 +1,8 @@
+properties:
+  type:
+    type: string
+  fields:
+    type: string
+  message:
+    type: string
+    default: "Error message."

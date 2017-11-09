@@ -1,0 +1,21 @@
+properties:
+  id:
+    type: integer
+  meal_type_id:
+    type: integer
+  duration:
+    type: integer
+  calories:
+    type: integer
+  translation:
+    type: array
+    items:
+      $ref: '#/definitions/MealsTranslationData'
+  diet_type:
+    type: array
+    items:
+      $ref: '#/definitions/MealsDietType'
+  nutrition:
+    $ref: '#/definitions/MealsNutrition'
+  meal_type:
+    $ref: '#/definitions/MealsMealType'

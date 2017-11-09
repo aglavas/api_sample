@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-swagger": "^1.0.1",
+    "laravel-elixir": "^6.0.0-9",
+    "laravel-elixir-browsersync-official": "^1.0.0",
+    "laravel-elixir-vue-2": "^0.2.0",
+    "laravel-elixir-webpack-official": "^1.0.2",
+    "lodash": "^4.16.2",
+    "vue": "^2.0.1",
+    "vue-resource": "^1.0.3"
+  },
+  "dependencies": {
+    "bourbon-neat": "^1.8.0"
+  },
+  "name": "api_sample",
+  "description": "`Require PHP >= 5.6.4`",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "",
+  "license": "ISC"
+}

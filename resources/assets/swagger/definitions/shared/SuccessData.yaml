@@ -1,0 +1,6 @@
+properties:
+  status_code:
+    type: integer
+  data:
+    type: string
+    default: ""

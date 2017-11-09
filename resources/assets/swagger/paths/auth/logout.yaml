@@ -1,0 +1,35 @@
+operationId: GetAuthLogout
+tags:
+  - Auth
+summary: User logout
+description: User logs out, system invalidates JWT token
+consumes:
+  - application/json
+produces:
+  - application/json
+responses:
+  '200':
+    description: Logout successful.
+    schema:
+      properties:
+        status_code:
+          type: integer
+        data:
+          type: string
+  '401':
+        description: Token not provided, authentication needed./Token has expired.
+        schema:
+          properties:
+            errors:
+              type: array
+              items:
+                $ref: '#/definitions/GeneralError'
+  '403':
+    description: The token has been blacklisted./Could not decode token/A token is required
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/GeneralError'
+

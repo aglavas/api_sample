@@ -1,0 +1,52 @@
+operationId: postPasswordResetToken
+tags:
+  - Password
+summary: Resets password using reset token
+description: Resets password using reset token
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: email
+    in: formData
+    description: User email
+    required: true
+    type: string
+  - name: token
+    in: path
+    description: Password reset token
+    required: true
+    type: string
+  - name: password
+    in: formData
+    description: New password
+    required: true
+    type: string
+  - name: password_confirmation
+    in: formData
+    description: New password confirmation
+    required: true
+    type: string
+responses:
+  '200':
+    description: Password reseted successfully.
+    schema:
+      $ref: '#/definitions/SuccessMessage'
+
+  '500':
+    description: Error while resetting password.
+    schema:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/ValidationError'
+  '422':
+      description: Validation error
+      schema:
+        properties:
+          errors:
+            type: array
+            items:
+              $ref: '#/definitions/ValidationError'

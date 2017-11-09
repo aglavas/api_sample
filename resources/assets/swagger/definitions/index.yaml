@@ -1,0 +1,31 @@
+#auth
+UserDefinition:
+  $ref: './auth/User.yaml'
+UserServiceRegisterDefinition:
+  $ref: './auth/UserServiceRegister.yaml'
+#meals
+MealsNutrition:
+  $ref: './meal/mealNutrition.yaml'
+MealsDietType:
+  $ref: './meal/mealDietType.yaml'
+MealsMealType:
+  $ref: './meal/mealMealType.yaml'
+MealsTranslationData:
+  $ref: './meal/mealTranslationData.yaml'
+MealsCreationData:
+  $ref: './meal/mealCreationData.yaml'
+#shared
+ErrorMessage:
+  $ref: './shared/ErrorMessage.yaml'
+ValidationError:
+  $ref: './shared/ValidationError.yaml'
+GeneralError:
+  $ref: './shared/GeneralError.yaml'
+SuccessMessage:
+  $ref: './shared/SuccessMessage.yaml'
+SuccessData:
+  $ref: './shared/SuccessData.yaml'
+PaginationMeta:
+  $ref: './shared/PaginationMeta.yaml'
+PaginationLinks:
+  $ref: './shared/PaginationLinks.yaml'
